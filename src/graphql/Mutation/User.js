@@ -1,6 +1,6 @@
 const User = require('../../models/User')
 const knex = require('../../lib/knex')
-const { hashPassword } = require('../../lib/auth')
+const { hashPassword, comparePassword } = require('../../lib/auth')
 const Availability = require('../../models/Availability')
 
 // Retrieve user or create new user if does not exist
@@ -9,7 +9,6 @@ const login = async (obj, { username, password }) => {
     const passwordHash = await hashPassword(password)
     let user = await User.query(trx).findOne({
       username,
-      password: passwordHash,
     })
 
     if (!user) {
@@ -21,6 +20,11 @@ const login = async (obj, { username, password }) => {
       await Availability.query(trx).insert({
         userId: user.id,
       })
+    } else {
+      const validPassword = await comparePassword(password, user.password)
+      if (!validPassword) {
+        throw new Error('Incorrect password')
+      }
     }
 
     return user
