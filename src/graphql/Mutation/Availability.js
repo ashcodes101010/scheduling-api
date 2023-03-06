@@ -1,7 +1,7 @@
 const Availability = require('../../models/Availability')
 
 const updateAvailability = async (obj, { id, input }) => {
-  const availRet = Availability.query().patchAndFetchById(id, input)
+  const availRet = await Availability.query().patchAndFetchById(id, input)
   return availRet
 }
 
