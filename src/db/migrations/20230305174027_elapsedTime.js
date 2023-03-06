@@ -16,6 +16,12 @@ exports.up = async knex => createTableIfNotExists(knex, 'elapsedTimes', table =>
     .float('timeSpentSeconds')
     .notNullable()
 
+  table
+    .timestamp('startTime')
+  
+  table
+    .timestamp('endTime')
+
   table.timestamp('createdAt').defaultTo(knex.fn.now())
   table.timestamp('updatedAt').defaultTo(knex.fn.now())
 })

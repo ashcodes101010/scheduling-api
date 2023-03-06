@@ -6,7 +6,7 @@ module.exports = gql`
   type Mutation {
     login(username: String!, password: String!): User!
     updateAvailability(userId: ID!, input: AvailabilityInput, zoomInput: AvailabilityInput): ID!
-    addElapsedTime(userId: ID!, timeSpentSeconds: Float!): ID!
+    addElapsedTime(userId: ID!, timeSpentSeconds: Float! startTime: String, endTime: String): ID!
   }
 
   type Query {
