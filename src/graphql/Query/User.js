@@ -5,6 +5,11 @@ const availability = async obj => {
   return availObj
 }
 
+const zoomAvailability = async obj => {
+  const availObj = await obj.$relatedQuery('zoomAvailability')
+  return availObj
+}
+
 const user = async (obj, { id }) => {
   const u = await User.query().findById(id)
   return u
@@ -16,6 +21,7 @@ const resolver = {
   },
   User: {
     availability,
+    zoomAvailability,
   },
 }
 
