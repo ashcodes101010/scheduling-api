@@ -11,6 +11,7 @@ module.exports = gql`
 
   type Query {
     user(id: ID!): User!
+    allAvailabilities: [AllAvailabilitiesReturn]
   }
 
   type User {
@@ -34,6 +35,17 @@ module.exports = gql`
     sunday: JSON
     createdAt: String!
     updatedAt: String!
+  }
+
+  type AllAvailabilitiesReturn {
+    username: String
+    monday: JSON
+    tuesday: JSON
+    wednesday: JSON
+    thursday: JSON
+    friday: JSON
+    saturday: JSON
+    sunday: JSON
   }
 
   input AvailabilityInput {
