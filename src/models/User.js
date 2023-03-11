@@ -8,7 +8,6 @@ class User extends BaseModel {
 
   static get relationMappings() {
     const Availability = require('./Availability')
-    const ZoomAvailability = require('./ZoomAvailability')
 
     return {
       availability: {
@@ -17,14 +16,6 @@ class User extends BaseModel {
         join: {
           from: 'users.id',
           to: 'availabilities.userId',
-        },
-      },
-      zoomAvailability: {
-        relation: HasOneRelation,
-        modelClass: ZoomAvailability,
-        join: {
-          from: 'users.id',
-          to: 'zoomAvailabilities.userId',
         },
       },
     }
