@@ -1,3 +1,4 @@
+// Adapted from HSA DEV Bootcamp starter code
 const { ApolloServer, makeExecutableSchema } = require('apollo-server-express')
 const resolvers = require('./resolvers')
 const typeDefs = require('./typeDefs')

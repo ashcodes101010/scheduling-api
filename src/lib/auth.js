@@ -1,3 +1,4 @@
+// Adapted from HSA DEV Bootcamp starter code
 const bcrypt = require('bcrypt')
 
 const hashPassword = password => new Promise((resolve, reject) => {

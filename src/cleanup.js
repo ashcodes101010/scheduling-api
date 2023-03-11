@@ -1,3 +1,5 @@
+// Adapted from HSA DEV Bootcamp starter code
+
 const shutdown = async exitCode => {
   try {
     console.log('Shutting down server...')
