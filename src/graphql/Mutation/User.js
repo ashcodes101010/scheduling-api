@@ -3,7 +3,7 @@ const knex = require('../../lib/knex')
 const { hashPassword, comparePassword } = require('../../lib/auth')
 const Availability = require('../../models/Availability')
 
-// Retrieve user or create new user if does not exist
+// #Authentication: Retrieve user or create new user if does not exist
 const login = async (obj, { username, password }) => {
   const trans = await knex.transaction(async trx => {
     const passwordHash = await hashPassword(password)

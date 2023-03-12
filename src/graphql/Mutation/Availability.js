@@ -1,6 +1,7 @@
 const knex = require('../../lib/knex')
 const Availability = require('../../models/Availability')
 
+// # Time Block: Updates user time blocks
 const updateAvailability = async (obj, { userId, input }) => {
   const trans = await knex.transaction(async trx => {
     Object.keys(input).forEach(k => input[k] = JSON.stringify(input[k]))

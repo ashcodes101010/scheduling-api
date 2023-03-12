@@ -1,5 +1,6 @@
 const User = require('../../models/User')
 
+// # Time Block: Retrieves time blocks for a user
 const availability = async obj => {
   const availObj = await obj.$relatedQuery('availability')
   return availObj
